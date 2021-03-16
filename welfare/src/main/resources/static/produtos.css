@@ -41,7 +41,25 @@ nav a:hover {
     color: #8EB2B2;
     text-decoration: underline;
 }
+.baixo{
 
+    background: #232323;
+    text-align: right;
+    font-size: 35px;
+    position: relative;
+    width: 1800px;
+    margin: 0px 0 0 0px;
+}
+.baixo a{
+    text-transform: uppercase;
+    color: #E9B934;
+    font-weight: bold;
+    font-size: 35px;
+    text-decoration: none;
+}
+.baixo a:hover {
+    color: #8EB2B2;
+    text-decoration: underline;}
 .produtos{
     width: 940px;
     margin: 0 auto;
