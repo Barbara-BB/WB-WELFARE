@@ -2,15 +2,68 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>WB-WELFARE</title>
-<link rel="stylesheet" href="reset.css">
-<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>WB-WELFARE</title>
+    <link rel="stylesheet" href="reset.css">
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="produtos.css">
 </head>
-<body>
-<img id="banner" src="imagens/banner.jpg">
-<h1>WB-WELFARE_CENTRO DE BELEZA</h1>
+<body >
+    <h2 class="topo">WB-WELFARE</h2>
+    <header>
+        
+        <div class="caixa">
+            <h1><img src="imagens/logo.jpg"></h1>
+            
+            <nav>
+                
+                <ul>
+                    <li><a href="Salão.html">Salão</a> </li>
+                    <li><a href="Barbearia.html">Barbearia</a> </li>
+                    <li><a href="Estetica.html">Estetica</a></li>
+                    <li><a href="Contato.html">Contato</a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <h3 class="baixo"><a href="cadastro.html">Cadastre-se</a></h3>
+
+    </header>
+
+    <main>
+        <ul class="produtos">
+            <li>
+                <h2>Cabelo</h2>
+                <img src="imagens/cabelo.jpg">
+                <p class="produto-descricao">Na tesoura ou máquina, como o cliente preferir.</p>
+                <p class="produto-preço">R$  25,00</p>
+            </li>
+            <li>
+                <h2>Barba</h2>
+                <img src="imagens/barba.jpg">
+                <p class="produto-descricao">Corte e desenho profissional de barba</p>
+                <p class="produto-preço">R$  18,00</p>
+            </li>
+            <li>
+                <h2>Botox Facial</h2>
+                <img src="imagens/botox.jpg">
+                <br>
+                <br>
+                <br>
+
+                <p class="produto-descricao">Aplicação de botox facial nos olhos, boca e testa.</p>
+              
+                <p class="produto-preço">R$  1500,00</p>
+
+               
+
+            </li>            
+        </ul>
+    </main>
+
+
+
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
