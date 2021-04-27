@@ -1,5 +1,8 @@
 package com.wb.welfare.dominio;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Funcionario extends Pessoa {
 	
 
@@ -7,22 +10,38 @@ public class Funcionario extends Pessoa {
 	private String admissao;
 	public String nivel;
 
-	public Funcionario(String nome, String sobrenome, String cpf, String nascimento, String telefone, String genero,
+	public Funcionario(Long id,String nome, String sobrenome, String cpf, String nascimento, String telefone, String genero,
 			String funcao, String admissao, String nivel) {
-		super(nome, sobrenome, cpf, nascimento, telefone, genero);
+		super(id,nome, sobrenome, cpf, nascimento, telefone, genero);
 		this.funcao = funcao;
 		this.admissao = admissao;
 		this.nivel = nivel;
 	}
-	public String getAdmissao() {
-		return admissao;
-	}
+
 	public String getFuncao() {
 		return funcao;
 	}
+
+	public void setFuncao(String funcao) {
+		this.funcao = funcao;
+	}
+
+	public String getAdmissao() {
+		return admissao;
+	}
+
+	public void setAdmissao(String admissao) {
+		this.admissao = admissao;
+	}
+
 	public String getNivel() {
 		return nivel;
 	}
+
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
+	}
+
 	
 
 }
