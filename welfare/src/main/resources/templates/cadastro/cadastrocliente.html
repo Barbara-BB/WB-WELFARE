@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="salvarcliente" method="post">
+<label>Nome</label>
+<input name="nome">
+<label>Sobrenome</label>
+<input name="sobrenome">
+<label>CPF</label>
+<input name="cpf">
+<label>Data de nascimento</label>
+<input name="nascimento">
+<label>Telefone/celular</label>
+<input name="telefone">
+<label>Genero</label>
+<input name="genero">
+<label>Como gostaria de ser tratado(a)? (Ex.: Senhora, Senhor,Você etc.)</label>
+<input name="tratamento">
+<label>Qual costuma ser sua forma preferencial de pagamento? (Ex.: Dinheiro, crédito, débito etc.)</label>
+<input name="pagamento">
+<input type="submit" value="Salvar">
+</form>
+<a href="listaclientes">LISTA</a>
+<table>
+	<tr th:each = "cliente : ${clientes}">
+		<td th:text = "${cliente.id}"></td>
+		<td th:text = "${cliente.nome}"></td>
+		<td th:text = "${cliente.sobrenome}"></td>
+		<td th:text = "${cliente.cpf}"></td>
+		<td th:text = "${cliente.nascimento}"></td>
+		<td th:text = "${cliente.telefone}"></td>
+		<td th:text = "${cliente.genero}"></td>
+		<td th:text = "${cliente.tratamento}"></td>
+		<td th:text = "${cliente.pagamento}"></td>
+	</tr>
+</table>
+
+</body>
+</html>
