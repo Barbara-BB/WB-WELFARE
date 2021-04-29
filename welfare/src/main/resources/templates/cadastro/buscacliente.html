@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="pesquisarcliente" method="post">
+<label>Pesquisa por nome</label>
+<input name="nomepesquisa">
+<input type="submit" value="Buscar">
+</form>
+
+<table>
+	<tr th:each = "cliente : ${clientes}">
+		<td th:text = "${cliente.id}"></td>
+		<td th:text = "${cliente.nome}"></td>
+		<td th:text = "${cliente.sobrenome}"></td>
+		<td th:text = "${cliente.cpf}"></td>
+		<td th:text = "${cliente.nascimento}"></td>
+		<td th:text = "${cliente.telefone}"></td>
+		<td th:text = "${cliente.genero}"></td>
+		<td th:text = "${cliente.tratamento}"></td>
+		<td th:text = "${cliente.pagamento}"></td>
+		<td> <a th:href="@{/editarcliente/{idcliente}(idcliente=${cliente.id})}">Editar</a></td>
+		<td> <a th:href="@{/excluircliente/{idcliente}(idcliente=${cliente.id})}">Excluir</a></td>
+	</tr>
+</table>
+
+</body>
+</html>
