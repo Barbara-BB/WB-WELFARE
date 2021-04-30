@@ -7,21 +7,46 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
 
+<fieldset>
+<legend>Campo de Pesquisa</legend>
+<div>
 <form action="pesquisarcliente" method="post">
+<div>
 <label>Pesquisa por nome</label>
 <input name="nomepesquisa">
+</div>
+<div>
+	<label for="pesquisagenero"></label>
+	<select class="form-select form-select-lg mb-12" aria-label=".form-select-lg example" name="pesquisagenero" id="pesquisagenero">
+		<option value="" >--Todos--</option>
+		<option value="FEMININO" th:text="Feminino"/>
+		<option value="MASCULINO" th:text="Masculino"/>
+	</select>
+
+</div>
+<div>
 <input type="submit" value="Buscar">
+</div>
 </form>
+
+
+</div>
+</fieldset>
+<form action="ordem" method="post">
+<label>Ordem alfabetica</label>
+<input type="submit" value="Ordenar">
+</form>
+
 
 <table>
 	<tr th:each = "cliente : ${clientes}">
 		<td th:text = "${cliente.id}"></td>
-		<td th:text = "${cliente.nome}"></td>
+		<td><a th:href="@{/telefones/{idcliente}(idcliente=${cliente.id})}"> <span th:text = "${cliente.nome}"></span></a></td>
 		<td th:text = "${cliente.sobrenome}"></td>
 		<td th:text = "${cliente.cpf}"></td>
 		<td th:text = "${cliente.nascimento}"></td>
 		<td th:text = "${cliente.telefone}"></td>
-		<td th:text = "${cliente.genero}"></td>
+		<td th:text = "${cliente.generocliente}"></td>
 		<td th:text = "${cliente.tratamento}"></td>
 		<td th:text = "${cliente.pagamento}"></td>
 		<td> <a th:href="@{/editarcliente/{idcliente}(idcliente=${cliente.id})}">Editar</a></td>

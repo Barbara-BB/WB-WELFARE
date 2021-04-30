@@ -6,7 +6,7 @@ public abstract class Pessoa {
 	private String sobrenome;
 	private String cpf;
 	private String nascimento;
-	public String telefone;
+	public String telefoneprincipal;
 	public String genero;
 	
 	public Pessoa(String nome, String sobrenome, String cpf, String nascimento, String telefone, String genero) {
@@ -14,7 +14,7 @@ public abstract class Pessoa {
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;
 		this.nascimento = nascimento;
-		this.telefone = telefone;
+		this.telefoneprincipal = telefoneprincipal;
 		this.genero = genero;
 	}
 
@@ -34,7 +34,7 @@ public abstract class Pessoa {
 
 
 	public String getTelefone() {
-		return telefone;
+		return telefoneprincipal;
 	}
 
 

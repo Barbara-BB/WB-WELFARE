@@ -1,8 +1,11 @@
 package com.wb.welfare.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,11 +55,34 @@ public class BuscaclienteController {
 	}
 	
 	@PostMapping("**/pesquisarcliente")
-	public ModelAndView pesquisar(@RequestParam("nomepesquisa") String nomepesquisa) {
+	public ModelAndView pesquisar(@RequestParam("nomepesquisa") String nomepesquisa,@RequestParam("pesquisagenero") String pesquisagenero) {
+		List<Cliente> clientes = new ArrayList<Cliente>();
+		if (pesquisagenero !=null && !pesquisagenero.isEmpty()) {
+			clientes = clienteRepository.findClienteNameGenero(nomepesquisa,pesquisagenero);
+		}else {
+			clientes=clienteRepository.findClienteByName(nomepesquisa);
+		}
+		
 		ModelAndView modelAndView = new ModelAndView("cadastro/buscacliente");
-		modelAndView.addObject("clientes", clienteRepository.findClienteByName(nomepesquisa));
+		modelAndView.addObject("clientes", clientes);
 		modelAndView.addObject("clientebj",new Cliente());
 		return modelAndView;
 		
 	}
+
+
+	
+	@PostMapping("**/ordem")
+	public ModelAndView ordem (@RequestParam("ordem") String ordem) {
+		ModelAndView modelAndView = new ModelAndView("cadastro/buscacliente");
+		modelAndView.addObject("clientes", clienteRepository.findAllByOrderName(ordem, Sort.by("nome").ascending()));
+		modelAndView.addObject("clientebj",new Cliente());
+		return modelAndView;}
+	
+	@GetMapping("/telefones/{idcliente}")
+	public ModelAndView telefones(@PathVariable("idcliente") Long idcliente) {
+		Optional<Cliente> cliente = clienteRepository.findById(idcliente);
+		ModelAndView modelAndView = new ModelAndView("cadastro/telefones");
+		modelAndView.addObject("clientebj",cliente.get());
+		return modelAndView;}
 }

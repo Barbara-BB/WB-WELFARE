@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+ <link rel="stylesheet" href="reset.css">
+     <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="produtos.css">
+<title>WB-WELFARE</title>
+</head>
+<header>
+<h1 style="text-align:center;color:#E9B934">Cadastro</h1>
+
+</header>
+<body style="background-image: url(imagens/salon.jpg)">
+<div class="container"  >
+<a class="btn btn-primary" href="/buscacliente">Retornar</a>
+<div th:each="p: ${clientebj}">
+	<div>
+		<p>ID:<span th:text="${p.id}"></span></p>
+		<p>Nome:<span th:text="${p.nome}"></span></p>
+		<p>Sobrenome:<span th:text="${p.sobrenome}"></span></p>
+		<p>CPF:<span th:text="${p.cpf}"></span></p>
+		<p>Nascimento<span th:text="${p.nascimento}"></span></p>
+		<p>Genero:<span th:text="${p.genero}"></span></p>
+		<p>Tratamento:<span th:text="${p.tratamento}"></span></p>
+		<p>Pagamento:<span th:text="${p.pagamento}"></span></p>
+	</div>
+<h5>Telefones</h5>
+<div class="row g-0"> 
+	<form th:action="@{/addfoneCliente/{clienteid}(clienteid=${clientebj.id})}" method="post" class="col-12">
+	<div class="row g-0">
+		<div class="input-group mb-6">
+			<label for="formGroupExampleInput" class="form-label">Número</label>
+			<input class="form-control" placeholder="numero" id="numero"  name="numero" >
+		</div>
+		<div class="input-group mb-6">
+			<label for="formGroupExampleInput" class="form-label">Tipo</label>
+			<input class="form-control" placeholder="Celular/Telefone" id="tipo"  name="tipo" >
+		</div>
+		
+		<input class="btn btn-primary" type="submit" value="Adicionar">
+	</div>
+	
+		
+	</form>
+	
+
+		
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

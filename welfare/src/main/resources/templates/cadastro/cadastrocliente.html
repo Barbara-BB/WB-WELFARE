@@ -49,10 +49,15 @@ xmlns:th="http://www.thymeleaf.org">
 <label for="formGroupExampleInput" class="form-label">Telefone/celular</label>
 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="(ddd) xxxx-xxxx" name="telefone" th:field="*{telefone}">
 </div>
-<div class="mb-3">
-<label for="formGroupExampleInput" class="form-label">Genero</label>
-<input type="text" class="form-control" id="formGroupExampleInput" placeholder="feminino/masculino/LGBT/Prefiro não informar" name="genero" th:field="*{genero}"> 
-</div>
+<div >
+	<label for="generocliente" class="form-label">Genero</label>
+	<select class="form-select form-select-lg mb-12" aria-label=".form-select-lg example" th:field="*{generocliente}">
+		<option value="">--Todos--</option>
+		<option value="FEMININO" th:text="Feminino"/>
+		<option value="MASCULINO" th:text="Maculino"/>
+	</select>
+		
+	</div>
 <div class="mb-3">
 <label for="formGroupExampleInput" class="form-label">Como gostaria de ser tratado(a)? (Ex.: Senhora, Senhor,Você etc.)</label>
 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Senhora,Você etc." name="tratamento" th:field="*{tratamento}">

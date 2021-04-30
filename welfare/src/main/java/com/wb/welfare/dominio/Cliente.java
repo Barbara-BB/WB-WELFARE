@@ -1,11 +1,13 @@
 package com.wb.welfare.dominio;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente implements Serializable{
@@ -21,7 +23,24 @@ public class Cliente implements Serializable{
 	public String genero;
 	private String tratamento;
 	private String pagamento;
+	private String generocliente;
 	
+	@OneToMany(mappedBy="cliente")
+	private List<Telefone> telefones;
+	
+	
+	public String getGenerocliente() {
+		return generocliente;
+	}
+	public void setGenerocliente(String generocliente) {
+		this.generocliente = generocliente;
+	}
+	public List<Telefone> getTelefones() {
+		return telefones;
+	}
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
 	public Long getId() {
 		return id;
 	}
